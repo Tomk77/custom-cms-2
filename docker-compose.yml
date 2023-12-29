@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    command: --replSet rs0 --bind_ip_all --noauth
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+volumes:
+  mongodb_data:

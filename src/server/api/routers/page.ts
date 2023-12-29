@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { v4 as uuidv4 } from "uuid";
 
 import {
   createTRPCRouter,
@@ -12,6 +13,7 @@ export const pageRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       return ctx.db.page.create({
         data: {
+          //   id: uuidv4(),
           title: input.title,
         },
       });

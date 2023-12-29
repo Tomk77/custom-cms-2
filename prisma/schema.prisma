@@ -64,6 +64,18 @@ model User {
     posts         Post[]
 }
 
+model Page {
+    id      String    @id @default(cuid())
+    title   String?
+    excerpt String?
+    date    DateTime?
+}
+
+type DateModel {
+    date DateTime
+    type String
+}
+
 model VerificationToken {
     identifier String
     token      String   @unique
